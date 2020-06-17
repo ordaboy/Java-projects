@@ -27,3 +27,5 @@ All the arguments are guaranteed to be passed to the program. If for some reason
 4. If there is no **-out** argument, the program prints data to the standard output.
 5. If there are both **-data** and **-in** arguments, program prefers -data over -in.
 6. If there is no **-alg**, the program considers shift algorithm
+## 5. Numerical System Converter
+### Desciption will be later
