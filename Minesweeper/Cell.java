@@ -22,8 +22,7 @@ public class Cell {
     }
 
     public char getNumberOfMinesAround() {
-        char t = (char) (this.numberOfMinesAround + 48);
-        return t;
+        return (char) (this.numberOfMinesAround + 48);
     }
 
     public boolean isMine() {
