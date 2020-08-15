@@ -12,3 +12,5 @@ The program is designed to do encryption/decyption messages and texts using simp
 Desciption will be later
 ## 6. Minesweeper
 Description will be later
+## 7. Contacts
+Description will be later
