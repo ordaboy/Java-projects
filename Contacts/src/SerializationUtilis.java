@@ -1,5 +1,3 @@
-package contacts;
-
 import java.io.*;
 
 public class SerializationUtilis {

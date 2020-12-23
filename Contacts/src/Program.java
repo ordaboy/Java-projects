@@ -1,5 +1,3 @@
-package contacts;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,24 +32,12 @@ public class Program {
         System.out.print("[menu] Enter action (add, list, search, count, exit): ");
         String action = scanner.nextLine();
         switch (action) {
-            case "add":
-                add();
-                break;
-            case "list":
-                list();
-                break;
-            case "search":
-                search();
-                break;
-            case "count":
-                count();
-                break;
-            case "exit":
-                exit();
-                break;
-            default:
-                System.out.println("Wrong action!");
-                break;
+            case "add" -> add();
+            case "list" -> list();
+            case "search" -> search();
+            case "count" -> count();
+            case "exit" -> exit();
+            default -> System.out.println("Wrong action!");
         }
     }
 
@@ -81,7 +67,9 @@ public class Program {
                 if (index > 0 && index < arrayList.size() + 1) {
                     Contact contact = phoneBook.getContact(index - 1);
                     Action action = getAction(contact);
-                    action.showInfo(contact);
+                    if (action != null) {
+                        action.printInfo(contact);
+                    }
                     record(contact, index - 1); // cont
                     searching = false;
                 } else {
@@ -106,26 +94,30 @@ public class Program {
             System.out.print("[record] Enter action (edit, delete, menu): ");
             String action = scanner.nextLine();
             switch (action) {
-                case "edit":
+                case "edit" -> {
                     Action act = getAction(contact);
-                    act.editContact(contact, scanner);
+                    if (act != null) {
+                        act.editContact(contact, scanner);
+                    }
                     System.out.println("Saved");
-                    act.showInfo(contact);
-                    break;
-                case "delete":
+                    if (act != null) {
+                        act.printInfo(contact);
+                    }
+                }
+                case "delete" -> {
                     phoneBook.removeContact(index);
                     recording = false;
                     System.out.println();
-                    break;
-                case "menu":
+                }
+                case "menu" -> {
                     recording = false;
                     System.out.println();
-                    break;
-                default:
+                }
+                default -> {
                     System.out.println("Wrong input!");
                     recording = false;
                     System.out.println();
-                    break;
+                }
             }
         }
     }
@@ -135,15 +127,12 @@ public class Program {
         String type = scanner.nextLine();
         Action action;
         switch (type) {
-            case "person":
-                action = new ActionPerson();
-                break;
-            case "organization":
-                action = new ActionOrganization();
-                break;
-            default:
+            case "person" -> action = new ActionPerson();
+            case "organization" -> action = new ActionOrganization();
+            default -> {
                 System.out.println("Wrong type!");
                 return;
+            }
         }
         Contact newContact = action.addRecord(scanner);
         phoneBook.addContact(newContact);
@@ -151,7 +140,7 @@ public class Program {
     }
 
     private void list() {
-        if (phoneBook.empty()) {
+        if (phoneBook.isEmpty()) {
             System.out.println("Phone Book is empty!");
             return;
         }
@@ -165,7 +154,9 @@ public class Program {
             if (index > 0 && index < numberOfContacts + 1) {
                 Contact contact = phoneBook.getContact(index - 1);
                 Action action = getAction(contact);
-                action.showInfo(contact);
+                if (action != null) {
+                    action.printInfo(contact);
+                }
                 record(contact, index - 1);
             } else {
                 System.out.println("Bad number!\n");
@@ -182,7 +173,9 @@ public class Program {
             System.out.print(i + ". ");
             Contact contact = phoneBook.getContact(i - 1);
             Action action = getAction(contact);
-            action.showFullName(contact);
+            if (action != null) {
+                action.printFullName(contact);
+            }
         }
     }
 

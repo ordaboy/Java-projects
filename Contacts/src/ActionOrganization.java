@@ -1,5 +1,3 @@
-package contacts;
-
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -21,12 +19,10 @@ public class ActionOrganization implements Action {
     }
 
     @Override
-    public void showFullName(Contact contact) {
-        System.out.println(contact.getFullName());
-    }
+    public void printFullName(Contact contact) { System.out.println(contact.getFullName()); }
 
     @Override
-    public void showInfo(Contact contact) {
+    public void printInfo(Contact contact) {
         ContactOrganization organization = (ContactOrganization) contact;
         System.out.println("Organization name: " + organization.getName());
         System.out.println("Address: " + organization.getAddress());
@@ -42,24 +38,22 @@ public class ActionOrganization implements Action {
         System.out.print("Select a field (name, address, number): ");
         String field = scanner.nextLine();
         switch (field) {
-            case "name":
+            case "name" -> {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 organization.setName(name);
-                break;
-            case "address":
+            }
+            case "address" -> {
                 System.out.print("Enter address: ");
                 String address = scanner.nextLine();
                 organization.setAddress(address);
-                break;
-            case "number":
+            }
+            case "number" -> {
                 System.out.print("Enter number");
                 String number = scanner.nextLine();
                 organization.setNumber(number);
-                break;
-            default:
-                System.out.println("Wrong input!");
-                break;
+            }
+            default -> System.out.println("Wrong input!");
         }
         organization.setTimeLastEdited(LocalDateTime.now());
     }

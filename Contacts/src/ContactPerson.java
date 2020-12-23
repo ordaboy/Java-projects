@@ -1,5 +1,3 @@
-package contacts;
-
 import java.time.LocalDate;
 
 public class ContactPerson extends Contact {

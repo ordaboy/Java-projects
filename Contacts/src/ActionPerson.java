@@ -1,5 +1,3 @@
-package contacts;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -31,12 +29,12 @@ public class ActionPerson implements Action {
     }
 
     @Override
-    public void showFullName(Contact contact) {
+    public void printFullName(Contact contact) {
         System.out.println(contact.getFullName());
     }
 
     @Override
-    public void showInfo(Contact contact) {
+    public void printInfo(Contact contact) {
         ContactPerson person = (ContactPerson) contact;
         System.out.println("Name: " + person.getName());
         System.out.println("Surname: " + person.getSurname());
@@ -54,34 +52,32 @@ public class ActionPerson implements Action {
         System.out.print("Select a field (name, surname, birth date, gender, number): ");
         String field = scanner.nextLine();
         switch (field) {
-            case "name":
+            case "name" -> {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 person.setName(name);
-                break;
-            case "surname":
+            }
+            case "surname" -> {
                 System.out.print("Enter surname: ");
                 String surname = scanner.nextLine();
                 person.setSurname(surname);
-                break;
-            case "birth date":
+            }
+            case "birth date" -> {
                 System.out.print("Enter birth date: ");
                 String birthDate = scanner.nextLine();
                 person.setBirthDate(toValidBirthDate(birthDate));
-                break;
-            case "gender":
+            }
+            case "gender" -> {
                 System.out.print("Enter gender: ");
                 String gender = scanner.nextLine();
                 person.setGender(toValidGender(gender));
-                break;
-            case "number":
+            }
+            case "number" -> {
                 System.out.print("Enter number");
                 String number = scanner.nextLine();
                 person.setNumber(number);
-                break;
-            default:
-                System.out.println("Bad input!");
-                break;
+            }
+            default -> System.out.println("Bad input!");
         }
         person.setTimeLastEdited(LocalDateTime.now());
     }

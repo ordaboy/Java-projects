@@ -1,5 +1,3 @@
-package contacts;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
@@ -10,33 +8,19 @@ public class Contact implements Serializable {
     private LocalDateTime timeCreated;
     private LocalDateTime timeLastEdited;
 
-    public Contact() {
-        this.number = "";
-    }
+    public Contact() { this.number = ""; }
 
-    public String getNumber() {
-        return number;
-    }
+    public String getNumber() { return number; }
 
-    public void setNumber(String number) {
-        this.number = toValidNumber(number);
-    }
+    public void setNumber(String number) { this.number = toValidNumber(number); }
 
-    public LocalDateTime getTimeCreated() {
-        return timeCreated;
-    }
+    public LocalDateTime getTimeCreated() { return timeCreated; }
 
-    public void setTimeCreated(LocalDateTime timeCreated) {
-        this.timeCreated = timeCreated;
-    }
+    public void setTimeCreated(LocalDateTime timeCreated) { this.timeCreated = timeCreated; }
 
-    public LocalDateTime getTimeLastEdited() {
-        return timeLastEdited;
-    }
+    public LocalDateTime getTimeLastEdited() { return timeLastEdited; }
 
-    public void setTimeLastEdited(LocalDateTime timeLastEdited) {
-        this.timeLastEdited = timeLastEdited;
-    }
+    public void setTimeLastEdited(LocalDateTime timeLastEdited) { this.timeLastEdited = timeLastEdited; }
 
     private String toValidNumber(String number) {
         Pattern pattern1 = Pattern.compile("\\+?\\(\\w+\\)([\\s-]\\w{2,})*");
@@ -58,8 +42,6 @@ public class Contact implements Serializable {
         setTimeLastEdited(LocalDateTime.now());
     }
 
-    public String getFullName() {
-        return "";
-    }
+    public String getFullName() { return ""; }
 
 }
