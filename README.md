@@ -7,3 +7,4 @@ I am learning Java on JetBrains Academy. This is the repository for my projects 
 ## 5. Numerical System Converter
 ## 6. Minesweeper
 ## 7. Contacts
+## 8. File Type Analyzer
