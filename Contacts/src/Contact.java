@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Contact implements Serializable {
+public abstract class Contact implements Serializable {
     private String number;
     private LocalDateTime timeCreated;
     private LocalDateTime timeLastEdited;
@@ -42,6 +42,6 @@ public class Contact implements Serializable {
         setTimeLastEdited(LocalDateTime.now());
     }
 
-    public String getFullName() { return ""; }
+    public abstract String getFullName();
 
 }
